@@ -45,7 +45,7 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
-      
+
       //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
@@ -67,6 +67,7 @@ public class MarkdownParseTest {
          System.out.println("Invalid File");
       }
 
+      //call getLinks
       try {
          URLs = parser.getLinks(content);
       } catch (Exception e) {
@@ -74,6 +75,8 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
+
+      //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
 
@@ -95,6 +98,7 @@ public class MarkdownParseTest {
          System.out.println("Invalid File");
       }
 
+      //call getLinks
       try {
          URLs = parser.getLinks(content);
       } catch (Exception e) {
@@ -102,6 +106,8 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
+
+      //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
 
@@ -125,6 +131,7 @@ public class MarkdownParseTest {
          System.out.println("Invalid File");
       }
 
+      //call getLinks
       try {
          URLs = parser.getLinks(content);
       } catch (Exception e) {
@@ -132,6 +139,8 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
+
+      //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
 
@@ -151,6 +160,7 @@ public class MarkdownParseTest {
          System.out.println("Invalid File");
       }
 
+      //call getLinks
       try {
          URLs = parser.getLinks(content);
       } catch (Exception e) {
@@ -158,6 +168,8 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
+
+      //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
 
@@ -178,6 +190,7 @@ public class MarkdownParseTest {
          System.out.println("Invalid File");
       }
 
+      //call getLinks
       try {
          URLs = parser.getLinks(content);
       } catch (Exception e) {
@@ -185,6 +198,8 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
+
+      //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
 
@@ -192,10 +207,6 @@ public class MarkdownParseTest {
    public void testfile7() {
       //set up expected string from first test file
       ArrayList<String> expected = new ArrayList<String>();
-      expected.add("URL1");
-      expected.add("URL2");
-      expected.add("URL3");
-      expected.add("URL4");
 
       String content = "empty";
       ArrayList<String> URLs = new ArrayList<String>();
@@ -208,6 +219,7 @@ public class MarkdownParseTest {
          System.out.println("Invalid File");
       }
 
+      //call getLinks
       try {
          URLs = parser.getLinks(content);
       } catch (Exception e) {
@@ -215,6 +227,8 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
+
+      //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
 
@@ -222,10 +236,7 @@ public class MarkdownParseTest {
    public void testfile8() {
       //set up expected string from first test file
       ArrayList<String> expected = new ArrayList<String>();
-      expected.add("URL1");
-      expected.add("URL2");
-      expected.add("URL3");
-      expected.add("URL4");
+      expected.add("a link on the first line");
 
       String content = "empty";
       ArrayList<String> URLs = new ArrayList<String>();
@@ -238,6 +249,7 @@ public class MarkdownParseTest {
          System.out.println("Invalid File");
       }
 
+      //call getLinks
       try {
          URLs = parser.getLinks(content);
       } catch (Exception e) {
@@ -245,6 +257,8 @@ public class MarkdownParseTest {
          System.out.println(e.getMessage());
          fail();
       }
+
+      //check that expected equals actual
       assertEquals(expected.toString(), URLs.toString());
    }
 }
