@@ -22,11 +22,6 @@ public class MarkdownParseTest {
    }
 
    @Test
-   public void addition() {
-      assertEquals(0, 1+1);
-   }
-
-   @Test
    public void testfile1() {
       //set up expected string from first test file
       expected.add("https://something.com");
