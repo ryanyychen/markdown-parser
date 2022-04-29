@@ -18,11 +18,11 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-        }
 
-        while (Character.toString(markdown.charAt(currentIndex)).equals(System.getProperty("line.separator"))) {
-            currentIndex++;
-            if (currentIndex == markdown.length()) break;
+            while (Character.toString(markdown.charAt(currentIndex)).equals(System.getProperty("line.separator"))) {
+                currentIndex++;
+                if (currentIndex == markdown.length()) break;
+            }
         }
 
         return toReturn;
