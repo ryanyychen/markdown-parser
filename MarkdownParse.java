@@ -19,6 +19,8 @@ public class MarkdownParse {
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
 
+            if (openBracket == -1) break;
+
             while (Character.toString(markdown.charAt(currentIndex)).equals(System.getProperty("line.separator"))) {
                 currentIndex++;
                 if (currentIndex == markdown.length()) break;
