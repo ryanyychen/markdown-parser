@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class MarkdownParse {
-
     public static ArrayList<String> getLinks(String markdown) {
         // test-file5.md -- should not work for separated )[
         ArrayList<String> toReturn = new ArrayList<>();
+
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
-        System.out.println("Length: " + markdown.length());
 
         // search for each of the parentheses/brackets
         while(currentIndex < markdown.length()) {
