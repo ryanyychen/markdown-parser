@@ -1,31 +1,39 @@
-// File reading code from https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
-import java.io.File;
+//https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Stack;
 
 public class MarkdownParse {
+    public static ArrayList<String> getLinks(String markdown) {
+        // test-file5.md -- should not work for separated )[
+        ArrayList<String> toReturn = new ArrayList<>();
 
-    static int findCloseParen(String markdown, int openParen) {
-        int closeParen = openParen + 1;
-        int openParenCount = 1;
-        while (openParenCount > 0 && closeParen < markdown.length()) {
-            if (markdown.charAt(closeParen) == '(') {
-                openParenCount++;
-            } else if (markdown.charAt(closeParen) == ')') {
-                openParenCount--;
-            }
-            closeParen++;
-        }
-        if(openParenCount == 0) {
-          return closeParen - 1;
-        }
-        else {
-          return -1;
+        // find the next [, then find the ], then find the (, then read link upto next )
+        int currentIndex = 0;
+
+        // search for each of the parentheses/brackets
+        while(currentIndex < markdown.length()) {
+            int openBracket = markdown.indexOf("[", currentIndex);
+            int closeBracket = markdown.indexOf("]", openBracket);
+            int openParen = markdown.indexOf("(", closeBracket);
+            int closeParen = markdown.indexOf(")", openParen);
+
+            currentIndex = closeParen + 1;
+
+            // if any of the parentheses/brackets don't exist
+            if (openBracket == -1 || closeBracket == -1
+                    || openParen == -1 || closeParen == -1) break;
+
+            // if '(' follows directly after ']'
+            if (openParen != closeBracket + 1) continue;
+            else toReturn.add(markdown.substring(openParen + 1, closeParen));
+
+            // end of file
+            if (currentIndex >= markdown.length()) break;
         }
 
     }

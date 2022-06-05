@@ -1,3 +1,2 @@
 # markdown-parser
-
-Created as a part of CSE 15L (Spring 2022) at UCSD
+Takes in any markdown file and prints out an array of all the links embedded in the file.
